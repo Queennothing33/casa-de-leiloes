@@ -82,14 +82,12 @@ public class ProdutosDAO {
             JOptionPane.showMessageDialog(null, "Produto não encontrado!");
         }
     } catch (SQLException erro) {
-        erro.printStackTrace(); 
         JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + erro.getMessage());
     } finally {
         try {
-            if (prep != null) prep.close();
-            if (conn != null) conn.close();
+            prep.close();
+            conn.close();
         } catch (SQLException e) {
-            e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro ao fechar conexão: " + e.getMessage());
         }
     }
